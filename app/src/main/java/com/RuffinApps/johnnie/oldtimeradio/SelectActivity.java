@@ -20,10 +20,12 @@ package com.RuffinApps.johnnie.oldtimeradio;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.ListView;
 
 public class SelectActivity extends AppCompatActivity {
-    // private String TAG = "SelectActivity: ";
+    private String TAG = "SelectActivity: ";
 
     private CustomList adapter;
     private RadioTitle radioList;
@@ -179,6 +181,17 @@ public class SelectActivity extends AppCompatActivity {
                 return null;
             }
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Log.e(TAG, "KeyCode_Back!_SelectActivity");
+            finish();
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
         @Override

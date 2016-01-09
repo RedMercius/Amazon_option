@@ -167,7 +167,6 @@ public class CustomList extends ArrayAdapter<String> {
             int status = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_STATUS));
             switch(status) {
                 case DownloadManager.STATUS_PAUSED:
-                    Log.d(TAG, "Download Paused!!");
 
                     context.runOnUiThread(new Runnable() {
 
@@ -185,7 +184,6 @@ public class CustomList extends ArrayAdapter<String> {
                     });
                     break;
                 case DownloadManager.STATUS_PENDING:
-                    Log.d(TAG, "Download Pending!!");
                     context.runOnUiThread(new Runnable() {
 
                         @Override
@@ -203,7 +201,6 @@ public class CustomList extends ArrayAdapter<String> {
                     });
                     break;
                 case DownloadManager.STATUS_RUNNING:
-                    Log.d(TAG, "Download Running!!");
                     context.runOnUiThread(new Runnable() {
 
                         @Override
@@ -216,14 +213,12 @@ public class CustomList extends ArrayAdapter<String> {
                             if (!mThreadRunning) {
                                 new Thread(new delayedCheck()).start();
                                 mThreadRunning = true;
-                                Log.d(TAG, "New Thread_Status Running!");
                             }
                         }
                     });
 
                     break;
                 case DownloadManager.STATUS_SUCCESSFUL:
-                    Log.d(TAG, "Download Successful!!");
 
                     context.runOnUiThread(new Runnable() {
                         @Override
@@ -236,26 +231,26 @@ public class CustomList extends ArrayAdapter<String> {
                     break;
                 case DownloadManager.STATUS_FAILED:
                     int reason = c.getInt(c.getColumnIndex(DownloadManager.COLUMN_REASON));
-                    Log.d(TAG, "Download Failed!!");
+                    //Log.d(TAG, "Download Failed!!");
                     switch(reason)
                     {
                         case DownloadManager.ERROR_CANNOT_RESUME:
-                            Log.d(TAG, "DownloadManager.ERROR_CANNOT_RESUME");
+                            //Log.d(TAG, "DownloadManager.ERROR_CANNOT_RESUME");
                             break;
                         case DownloadManager.ERROR_FILE_ALREADY_EXISTS:
-                            Log.d(TAG, "DownloadManager.ERROR_FILE_ALREADY_EXISTS");
+                            //Log.d(TAG, "DownloadManager.ERROR_FILE_ALREADY_EXISTS");
                             break;
                         case DownloadManager.ERROR_DEVICE_NOT_FOUND:
-                            Log.d(TAG, "DownloadManager.ERROR_DEVICE_NOT_FOUND");
+                            //Log.d(TAG, "DownloadManager.ERROR_DEVICE_NOT_FOUND");
                             break;
                         case DownloadManager.ERROR_FILE_ERROR:
-                            Log.d(TAG, "DownloadManager.ERROR_FILE_ERROR");
+                            //Log.d(TAG, "DownloadManager.ERROR_FILE_ERROR");
                             break;
                         case DownloadManager.ERROR_HTTP_DATA_ERROR:
-                            Log.d(TAG, "DownloadManager.ERROR_HTTP_DATA_ERROR");
+                            //Log.d(TAG, "DownloadManager.ERROR_HTTP_DATA_ERROR");
                             break;
                         case DownloadManager.ERROR_INSUFFICIENT_SPACE:
-                            Log.d(TAG, "DownloadManager.ERROR_INSUFFICIENT_SPACE");
+                            //Log.d(TAG, "DownloadManager.ERROR_INSUFFICIENT_SPACE");
                                     mRemoveList.remove(title);
                             if (!db.isOpen())
                             {
@@ -266,13 +261,13 @@ public class CustomList extends ArrayAdapter<String> {
                             notifyDataSetChanged();
                             break;
                         case DownloadManager.ERROR_TOO_MANY_REDIRECTS:
-                            Log.d(TAG, "DownloadManager.ERROR_TOO_MANY_REDIRECTS");
+                            //Log.d(TAG, "DownloadManager.ERROR_TOO_MANY_REDIRECTS");
                             break;
                         case DownloadManager.ERROR_UNHANDLED_HTTP_CODE:
-                            Log.d(TAG, "DownloadManager.ERROR_UNHANDLED_HTTP_CODE");
+                            //Log.d(TAG, "DownloadManager.ERROR_UNHANDLED_HTTP_CODE");
                             break;
                         case DownloadManager.ERROR_UNKNOWN:
-                            Log.d(TAG, "DownloadManager.ERROR_UNKNOWN");
+                            //Log.d(TAG, "DownloadManager.ERROR_UNKNOWN");
                             break;
                     }
                 default:

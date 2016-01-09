@@ -22,8 +22,8 @@ android {
         applicationId "com.RuffinApps.johnnie.oldtimeradio"
         minSdkVersion 10
         targetSdkVersion 23
-        versionCode 5
-        versionName "1.5"
+        versionCode 7
+        versionName "1.7"
     }
     buildTypes {
         release {
